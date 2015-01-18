@@ -6,12 +6,18 @@ Install JDK 1.7 and make sure you have $JAVA_HOME set in environment variables (
 Install MAVEN (download it at http://maven.apache.org/download.cgi) <br/>
 Place settings.xml file from this project in C:/Users/<your_user_name>/.m2/ folder in your machine <br/>
 Now open command line (type cmd in run prompt in windows), go to the folder of this project and type 'mvn clean install' If you see "BUILD SUCCESS" then you are good to proceed. <br/>
-<br/>
-
 Download eclipse and install maven plugin (https://www.eclipse.org/m2e-wtp/) <br/>
 Import the parkmycar_webapp project by select Import->Maven->Existing maven projects <br/>
 Download and install tomcat <br/>
-Create tomcat server on eclipse and now you can run the parkmycar_webapp on that server. <br/>
+Install mysql database and mysql workbench.<br/>
+Run the database seed script from <TBD> on your local databse.<br/>
+
+<br/>
+## Run instructions
+Create tomcat server on eclipse. <br/>
+Run the parkmycar_webapp on the server by Right clicking the project -> 'Run As' -> 'Run on server' <br/>
+You can now access the application at http://localhost:8080/parkmycar_webapp <br/>
+
 
 
 
