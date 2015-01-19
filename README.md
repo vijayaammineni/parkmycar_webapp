@@ -13,9 +13,9 @@ Run the database seed script from <TBD> on your local databse.<br/>
 
 <br/>
 ## Run instructions
-Create tomcat server on eclipse. <br/>
+Create tomcat server instance in eclipse. <br/>
 Run the parkmycar_webapp on the server by Right click on the project -> 'Run As' -> 'Run on server' <br/>
-You can now access the application at http://localhost:8080/parkmycar_webapp <br/>
+You can now access the application at http://localhost:8080/ParkMyCarWebApp <br/>
 
 
 
