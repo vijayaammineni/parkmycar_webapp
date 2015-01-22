@@ -1,6 +1,6 @@
 <%@page import="java.sql.Blob"%>
 <%@ page language="java" import="java.sql.ResultSet" %>
-<%@ page language="java" import="com.noteit.Utils" %>
+<%@ page language="java" import="com.parkmycar.Utils" %>
 <%@page import="com.parkmycar.db.DBOperations"%>
 <html>
 	<head>

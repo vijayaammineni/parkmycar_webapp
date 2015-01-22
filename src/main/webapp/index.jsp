@@ -1,7 +1,7 @@
 <%@page import="java.nio.channels.NotYetConnectedException"%>
 <%@page import="com.parkmycar.db.DBOperations"%>
 <%@ page language="java" import="java.sql.ResultSet" %>
-<%@ page language="java" import="com.noteit.Utils" %>
+<%@ page language="java" import="com.parkmycar.Utils" %>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
     pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

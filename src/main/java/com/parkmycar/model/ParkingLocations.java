@@ -43,7 +43,7 @@ public class ParkingLocations
 	@Column(name="ZIPCODE", nullable = false)
     private Integer zipCode;
 	
-	@Column(name="ZIPCODE", nullable = false)
+	@Column(name="CATEGORY", nullable = false)
 	@Enumerated(value = EnumType.ORDINAL)
     private ParkingCategory category = ParkingCategory.PUBLIC;
                     
