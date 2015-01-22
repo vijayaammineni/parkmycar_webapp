@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence/orm">
+
+    <schema>PARKMYCAR</schema>
+	<entity class="com.parkmycar.model.ParkingLocations" />
+	<entity class="com.parkmycar.model.Pricing" />
+	<entity class="com.parkmycar.model.UserFeedback" />
+
+</entity-mappings>

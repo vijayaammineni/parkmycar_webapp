@@ -1,0 +1,99 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd">
+
+	<!-- required for autowiring -->
+	<context:annotation-config />
+
+	<bean id="dbProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- Prefixes stop multiple configure beans from clobbering one another -->
+		<property name="placeholderPrefix" value="$db{" />
+		<property name="placeholderSuffix" value="}" />
+		<property name="locations">
+			<list>
+				<value>classpath:/persistence.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+		<property name="driverClassName" value="$db{dataSource.driverClassName}"></property>
+		<property name="url" value="$db{dataSource.url}"></property>
+		<property name="username" value="$db{dataSource.username}"></property>
+		<property name="password" value="$db{dataSource.password}"></property>
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="50" />
+		<property name="minIdle" value="5" />
+		<property name="defaultAutoCommit" value="false" />
+		<property name="testOnBorrow" value="true" />
+		<property name="validationQuery" value="$db{dataSource.validation.query}" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="60000" />
+		<property name="maxWait" value="300000" />
+		<property name="testWhileIdle" value="true" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="300" />
+		<property name="logAbandoned" value="true" />
+		<property name="jmxEnabled" value="true" />
+		<property name="validationInterval" value="120000" />
+		<property name="abandonWhenPercentageFull" value="100" />
+		<property name="jdbcInterceptors" value="org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer;
+					 org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+                     org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer;
+                     org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReportJmx(threshold=10000)" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+	<bean id="coreEclipseLinkJpaAdapter"
+		class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+		<property name="showSql" value="true" />
+		<property name="generateDdl" value="true" />
+		<property name="databasePlatform" value="$db{databasePlatform}" />
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="$db{persistenceUnitName}" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="coreEclipseLinkJpaAdapter" />
+		<property name="jpaProperties">
+			<props>
+			    <prop key="eclipselink.ddl-generation">none</prop>
+				<prop key="eclipselink.weaving">false</prop>
+				<prop key="eclipselink.logging.level">$db{orm.loglevel}</prop>
+				<prop key="eclipselink.cache.shared.default">false</prop>
+				<!-- prop key="eclipselink.query-results-cache">false</prop -->
+				<prop key="eclipselink.cache.type.default">NONE</prop>
+				<prop key="eclipselink.cache.size.default">0</prop>
+				<prop key="eclipselink.jdbc.sequence-connection-pool">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<qualifier value="transactionManager" />
+	</bean>
+
+	<bean id="coreTransactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<constructor-arg index="0" ref="transactionManager" />
+		<constructor-arg index="1">
+			<bean
+				class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"></bean>
+		</constructor-arg>
+	</bean>	
+	</beans>

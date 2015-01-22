@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+
+	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File" value="${catalina.base}/logs/parkmycar.log" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="20" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%C{1}] (%t:%x)  %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- ================ -->
+	<!-- Limit categories -->
+	<!-- ================ -->
+
+	<!--
+		Limit the InactivityMonitor class to INFO as its DEBUG is verbose
+	-->
+	<category name="org.springframework">
+		<priority value="INFO" />
+	</category>
+	
+	<logger name="org.eclipse.persistence">
+		<level value="info"/>
+	</logger>
+
+	<!-- ======================= -->
+	<!-- Setup the Root category -->
+	<!-- ======================= -->
+	<root>
+		<appender-ref ref="FILE" />
+	</root>
+
+</log4j:configuration>
