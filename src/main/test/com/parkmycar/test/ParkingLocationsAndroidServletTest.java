@@ -23,7 +23,6 @@ public class ParkingLocationsAndroidServletTest {
 	private static int SERVER_PORT = 8080;
 	private static String PROTOCOL = "http";
 	public static String PARKING_LOCATIONS_CPATH = "/ParkMyCarWebApp/ParkingLocations";
-	
 	public static URI getFullUrl (String contextPath) {
 		try {
 			URI uri = new URI (PROTOCOL, null, BASE_SERVER_URL, SERVER_PORT, contextPath, null, null);
@@ -33,7 +32,6 @@ public class ParkingLocationsAndroidServletTest {
 		}
 		return null;
 	}
-	
 	public static void main (String args []) {
 		HttpClient httpClient = new DefaultHttpClient();			
 		HttpPost httpPost = new HttpPost(getFullUrl(PARKING_LOCATIONS_CPATH));			

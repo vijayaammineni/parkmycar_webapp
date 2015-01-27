@@ -27,14 +27,16 @@ distance < 12000 ORDER BY distance LIMIT 0 , 20;*/
 		Query nQuery = this.entityManager.createNativeQuery("SELECT *, "
 				+ " (3959 * acos( cos( radians(?1) ) * cos( radians( latitude) ) * "
 				+ "cos( radians(longitude) - radians(?2) ) + sin( radians(?3) ) * "
-				+ "sin( radians(latitude) ) ) ) AS distance FROM  ParkingLocations HAVING ( distance < ?4) ORDER BY distance");
+				+ "sin( radians(latitude) ) ) ) AS distance FROM  ParkingLocations HAVING "
+				+ "( distance < ?4) ORDER BY distance",
+				ParkingLocations.class);
 		
-		nQuery = this.entityManager.createNativeQuery("SELECT * FROM  ParkingLocations", ParkingLocations.class);
+	//	nQuery = this.entityManager.createNativeQuery("SELECT * FROM  ParkingLocations", ParkingLocations.class);
 		
-//		nQuery.setParameter(1, latitude);
-//		nQuery.setParameter(2, longitude);
-//		nQuery.setParameter(3, latitude);
-//		nQuery.setParameter(4, radius);
+		nQuery.setParameter(1, latitude);
+		nQuery.setParameter(2, longitude);
+		nQuery.setParameter(3, latitude);
+		nQuery.setParameter(4, radius);
 		
 		return nQuery.getResultList();
 	}
