@@ -23,4 +23,11 @@
 		</property>
 		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
 	</bean>
+	
+	<bean id="dBOperations"
+		class="com.parkmycar.DBOperations">
+		<property name="parkMyCarService">
+		    <ref bean="parkMyCarService"/>		    
+	    </property>   
+	</bean>
 </beans>

@@ -8,5 +8,5 @@ public interface ParkingLocationsDao extends GenericDao<ParkingLocations, Long> 
 	
 	public List<ParkingLocations> getNearestParkingLocations(double latitude,
 			double longitude, double radius);
-			
+	
 }

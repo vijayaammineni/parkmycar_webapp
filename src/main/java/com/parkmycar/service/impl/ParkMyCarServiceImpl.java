@@ -102,4 +102,8 @@ public class ParkMyCarServiceImpl implements ParkMyCarService {
 			int parkingLocationId, Date newerThan) {
 		return userFeedbackDao.getUserFeedbackForParkingLocation(parkingLocationId, newerThan);
 	}
+
+	public List<ParkingLocations> getAllParkingLocations() {
+		return parkingLocationsDao.getAll();
+	}
 }

@@ -19,6 +19,8 @@ public interface ParkMyCarService {
 	
 	public List<ParkingLocations> getNearestParkingLocations (double latitude, double longitude, double radius);
 	
+	public List<ParkingLocations> getAllParkingLocations ();
+	
 	public Pricing getPricingById(Long id);
 	
 	public Pricing addPricing(Pricing pricing);
@@ -38,5 +40,6 @@ public interface ParkMyCarService {
 	public void deleteUserFeedback(Long userFeedbackId);
 	
 	public List<UserFeedback> getUserFeedbackForParkingLocation(int parkingLocationId, Date newerThan);
+	
 	
 }

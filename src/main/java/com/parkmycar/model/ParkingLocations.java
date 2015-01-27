@@ -52,14 +52,14 @@ public class ParkingLocations
     private Date dateAdded = new Date();
     
     @Temporal(TemporalType.TIMESTAMP)
-	@Column (name="DATEADDED", nullable = false)
+	@Column (name="DATEMODIFIED", nullable = false)
     private Date dateModified = new Date();
     
     @Column(name="UPVOTES", nullable = false)
-    private Integer upVotes;
+    private Integer upVotes = 0;
     
     @Column(name="DOWNVOTES", nullable = false)
-    private Integer downVotes;
+    private Integer downVotes = 0;
     
     @Column(name="LATITUDE", nullable = false)
     private Double latitude;

@@ -11,55 +11,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 				/WEB-INF/config/spring-config.xml
 		</param-value>
 	</context-param>
-	<servlet>
-		<servlet-name>Login</servlet-name>
-		<servlet-class>com.parkmycar.Login</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Login</servlet-name>
-		<url-pattern>/Login</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>Logout</servlet-name>
-		<servlet-class>com.parkmycar.Logout</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Logout</servlet-name>
-		<url-pattern>/Logout</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>ViewServlet</servlet-name>
-		<servlet-class>com.parkmycar.ViewServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ViewServlet</servlet-name>
-		<url-pattern>/view</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>DeleteServlet</servlet-name>
-		<servlet-class>com.parkmycar.DeleteServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DeleteServlet</servlet-name>
-		<url-pattern>/Delete</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>UpdateNotes</servlet-name>
-		<servlet-class>com.parkmycar.UpdateNotes</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>UpdateNotes</servlet-name>
-		<url-pattern>/UpdateNotes</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>AddUser</servlet-name>
-		<servlet-class>com.parkmycar.AddUser</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddUser</servlet-name>
-		<url-pattern>/AddUser</url-pattern>
-	</servlet-mapping>
+	
+	<listener>
+	   <listener-class>
+	        org.springframework.web.context.ContextLoaderListener
+	   </listener-class>
+	</listener> 
+	
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		    <welcome-file>Login.html</welcome-file>
 	</welcome-file-list>
 </web-app>

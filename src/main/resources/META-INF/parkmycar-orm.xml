@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence/orm">
 
-    <schema>PARKMYCAR</schema>
+    <schema>parkmycar</schema>
 	<entity class="com.parkmycar.model.ParkingLocations" />
 	<entity class="com.parkmycar.model.Pricing" />
 	<entity class="com.parkmycar.model.UserFeedback" />

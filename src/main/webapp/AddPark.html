@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<head>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<style>
+body {
+	background-color: lightgray
+}
+
+h1 {
+	color: blue
+}
+</style>
+
+<title>Add new Parking Lot</title>
+</head>
+<body>
+
+	<div align="center">
+		<h1>Add a New Parking Lot</h1>
+		<br> <br>
+		<form name="htmlform" action="AddParkServ" method="POST">
+			<table width="450px" cellspacing="5" cellpadding="5" border="0">
+
+				<tr>
+					<td valign="top"><label for="Parking_name">Parking lot
+							Name *</label></td>
+					<td valign="top"><input type="text" name="Parking_name"
+						maxlength="50" size="30"></td>
+				</tr>
+
+				<tr>
+					<td valign="top"><label for="Street Name">Street Name
+							*</label></td>
+					<td valign="top"><input type="text" name="Street Name"
+						maxlength="50" size="30"><br></td>
+				</tr>
+				<tr>
+					<td valign="top"><label for="Street Name"> </label></td>
+					<td valign="top"><input type="text" name="Address2"
+						maxlength="80" size="30"><br></td>
+
+				</tr>
+				<tr>
+					<td valign="top"><label for="City">City</label></td>
+					<td valign="top"><input type="text" name="City" maxlength="30"
+						size="30"><br></td>
+				</tr>
+
+				<tr>
+					<td valign="top"><label for="Zip">Zip Code *</label></td>
+					<td valign="top"><input type="text" name="Zip Code"
+						maxlength="30" size="30"><br></td>
+
+				</tr>
+				<tr>
+					<td valign="top"><label for="State">State *</label></td>
+					<td valign="top"><select name="State">
+							<option value="AL">AL</option>
+							<option value="AZ">AZ</option>
+							<option value="CA">CA</option>
+							<option value="CO">CO</option>
+							<option value="CT">CT</option>
+							<option value="DE">DE</option>
+							<option value="FL">FL</option>
+							<option value="IL">IL</option>
+							<option value="IN">IN</option>
+							<option value="IA">IA</option>
+							<option value="KS">KS</option>
+					</select><br></td>
+				</tr>
+				<tr>
+					<td valign="top"><label for="Lat">Latitude *</label></td>
+					<td valign="top"><input type="text" name="Latitude"
+						maxlength="30" size="30"><br></td>
+
+				</tr>
+
+				<tr>
+					<td valign="top"><label for="Long">Longitude *</label></td>
+					<td valign="top"><input type="text" name="Longitude"
+						maxlength="30" size="30"><br></td>
+
+				</tr>
+				<!-- 
+<tr>
+ <td valign="top">
+  <label for="Price">Price *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="Price" maxlength="30" size="30"><br>
+ </td>
+ 
+</tr>
+-->
+
+
+				<tr>
+					<td colspan="2" style="text-align: center"><input
+						type="submit" value="Submit"> 
+						</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+</body>
+</html>

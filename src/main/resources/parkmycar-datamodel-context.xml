@@ -15,6 +15,6 @@
   <bean id="parkingLocationsDao" class="com.parkmycar.dao.jpa.ParkingLocationsDaoJpa"/>
   <bean id="pricingDao" class="com.parkmycar.dao.jpa.PricingDaoJpa"/>
   <bean id="userFeedbackDao" class="com.parkmycar.dao.jpa.UserFeedbackDaoJpa"/>
-  <bean id="parkMyCarService" class="com.parkmycar.service.impl.ParkMyCarServiceJpa"/>
+  <bean id="parkMyCarService" class="com.parkmycar.service.impl.ParkMyCarServiceImpl"/>
   
 </beans>
