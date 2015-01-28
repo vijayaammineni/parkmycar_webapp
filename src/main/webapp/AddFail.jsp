@@ -5,8 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <head>
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
  <style>
   body {background-color:lightgray}
@@ -21,6 +20,9 @@
 
 <center>
         <h1>Operation adding Parking locations failed !!!</h1>
+        <br/>
+        <a href="SeeAllParkLocs.jsp"><b>See all parking locations</b></a>
+        <br/>
         <a href="AddPark.html"><b>Try again</b></a>
     </center>
 

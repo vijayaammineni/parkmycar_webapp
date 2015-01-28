@@ -68,7 +68,7 @@ public class ParkingLocationsAndroidServlet extends HttpServlet {
 				double latitude = Double.parseDouble(latStr);
 				double longitude = Double.parseDouble(longStr);
 				plist = dBOperations
-				.getNearestParkingLocations(latitude, longitude, 20);
+				.getNearestParkingLocations(latitude, longitude, 5);
 
 			} 
 			else if (address != null && !address.isEmpty()) 
