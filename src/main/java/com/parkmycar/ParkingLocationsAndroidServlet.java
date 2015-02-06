@@ -21,9 +21,6 @@ import com.parkmycar.json.ParkMyCarJson;
 import com.parkmycar.json.ParkingLocationsJSONObj;
 import com.parkmycar.model.ParkingLocations;
 
-/**
- * Servlet implementation class AddParkServ
- */
 
 @WebServlet("/ParkingLocations")
 public class ParkingLocationsAndroidServlet extends HttpServlet {

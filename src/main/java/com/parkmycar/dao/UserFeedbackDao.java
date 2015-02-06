@@ -6,5 +6,5 @@ import java.util.List;
 import com.parkmycar.model.UserFeedback;
 
 public interface UserFeedbackDao extends GenericDao<UserFeedback, Long> {
-	public List<UserFeedback> getUserFeedbackForParkingLocation(int parkingLocationId, Date newerThan);
+	public List<UserFeedback> getUserFeedbackForParkingLocation(int parkingLocationId, Date newerThan, int maxResults);
 }

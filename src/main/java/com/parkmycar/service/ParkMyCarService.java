@@ -18,6 +18,7 @@ public interface ParkMyCarService {
 	public void deleteParkingLocation(Long parkingLocationsId);
 	
 	public List<ParkingLocations> getNearestParkingLocations (double latitude, double longitude, double radius);
+	public List<ParkingLocations> getParkingLocationById(int id);
 	
 	public List<ParkingLocations> getAllParkingLocations ();
 	
@@ -31,6 +32,8 @@ public interface ParkMyCarService {
 	
 	public Pricing getPricingForWeekOfDayForParkingLocation(int parkingLocationId, int weekOfDay);
 	
+	public List<Pricing> getPricingForParkingLocation(int parkingLocationId);
+	
 	public UserFeedback getUserFeedbackById(Long id);
 	
 	public UserFeedback addUserFeedback(UserFeedback userFeedback);
@@ -39,7 +42,7 @@ public interface ParkMyCarService {
 	
 	public void deleteUserFeedback(Long userFeedbackId);
 	
-	public List<UserFeedback> getUserFeedbackForParkingLocation(int parkingLocationId, Date newerThan);
+	public List<UserFeedback> getUserFeedbackForParkingLocation(int parkingLocationId, Date newerThan, int maxResults);
 	
 	
 }

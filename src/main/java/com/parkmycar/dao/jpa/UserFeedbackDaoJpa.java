@@ -16,9 +16,14 @@ public class UserFeedbackDaoJpa extends GenericDaoJpa<UserFeedback, Long> implem
 	}
 
 	public List<UserFeedback> getUserFeedbackForParkingLocation(
-			int parkingLocationId, Date newerThan) {
-		// TODO Auto-generated method stub
-		return null;
+			int parkingLocationId, Date newerThan, int maxResults) {
+		
+		Query nquery = this.entityManager.createNativeQuery("Select * FROM "
+				+ "UserFeedback WHERE PARKINGLOCATIONS_ID = ?1 AND TIMESTAMP > ?2", UserFeedback.class);
+		nquery.setParameter(1, parkingLocationId);
+		nquery.setParameter(2, newerThan);
+		nquery.setMaxResults(maxResults);
+		return nquery.getResultList();
 	}
 
 }

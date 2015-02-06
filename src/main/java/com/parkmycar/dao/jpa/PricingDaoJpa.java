@@ -16,8 +16,19 @@ public class PricingDaoJpa extends GenericDaoJpa<Pricing, Long> implements Prici
 
 	public Pricing getPricingForWeekOfDayForParkingLocation(
 			int parkingLocationId, int weekOfDay) {
-		// TODO Auto-generated method stub
-		return null;
+		Query nQuery = this.entityManager.createNativeQuery("SELECT * from Pricing WHERE PARKINGLOCATIONS_ID"
+				+ "= ?1 AND DAYOFWEEK LIKE ?2",Pricing.class);
+		nQuery.setParameter(1,parkingLocationId);
+		nQuery.setParameter(2,weekOfDay);
+		return (Pricing)nQuery.getResultList().get(0);
+		
 	}
 
+	public List<Pricing> getPricingForParkingLocation(int parkingLocationId) 
+	{
+		Query nQuery = this.entityManager.createNativeQuery("SELECT * from Pricing WHERE PARKINGLOCATIONS_ID = ?1",Pricing.class);
+		nQuery.setParameter(1,parkingLocationId);
+		return nQuery.getResultList();
+		
+	}
 }

@@ -121,6 +121,7 @@ public class ParkingLocations
 		this.zipCode = zipCode;
 	}
 
+	
 	public ParkingCategory getCategory() {
 		return category;
 	}

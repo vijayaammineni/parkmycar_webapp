@@ -92,15 +92,25 @@ public class ParkMyCarServiceImpl implements ParkMyCarService {
 			double longitude, double radius) {
 		return parkingLocationsDao.getNearestParkingLocations(latitude, longitude, radius);
 	}
+	
+	public List<ParkingLocations> getParkingLocationById(int id)
+	{
+	return parkingLocationsDao.getParkingLocationById(id);
+	}
 
 	public Pricing getPricingForWeekOfDayForParkingLocation(
 			int parkingLocationId, int weekOfDay) {
 		return pricingDao.getPricingForWeekOfDayForParkingLocation(parkingLocationId, weekOfDay);
 	}
+	
+	public List<Pricing> getPricingForParkingLocation(
+			int parkingLocationId) {
+		return pricingDao.getPricingForParkingLocation(parkingLocationId);
+	}
 
 	public List<UserFeedback> getUserFeedbackForParkingLocation(
-			int parkingLocationId, Date newerThan) {
-		return userFeedbackDao.getUserFeedbackForParkingLocation(parkingLocationId, newerThan);
+			int parkingLocationId, Date newerThan, int maxResults) {
+		return userFeedbackDao.getUserFeedbackForParkingLocation(parkingLocationId, newerThan,maxResults);
 	}
 
 	public List<ParkingLocations> getAllParkingLocations() {
