@@ -28,7 +28,6 @@ public class ParkingLocationDetailsAndroidServletTest
 		try {
 			URI uri = new URI (PROTOCOL, null, BASE_SERVER_URL, SERVER_PORT, contextPath, null, null);
 			return uri;
-			
 		} catch (URISyntaxException e) 
 		{
 		}

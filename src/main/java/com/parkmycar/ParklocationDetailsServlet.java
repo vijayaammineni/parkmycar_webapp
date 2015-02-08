@@ -25,6 +25,7 @@ import com.parkmycar.json.PricingJSONObj;
 import com.parkmycar.model.ParkingLocations;
 import com.parkmycar.model.Pricing;
 import com.parkmycar.model.UserFeedback;
+import com.parkmycar.model.enumeration.UserFeedbackType;
 
 @WebServlet("/ParkingLocationDetails")
 public class ParklocationDetailsServlet extends HttpServlet {
@@ -92,7 +93,7 @@ public class ParklocationDetailsServlet extends HttpServlet {
 					jsonObj.setState(pl.getState());
 					jsonObj.setZipcode(pl.getZipCode());
 					jsonObj.setPricingDetailsList(getPricingJSONObjList(locationId));
-					jsonObj.setAvailabilityList(getAvailabilityJSONList(locationId));
+					jsonObj.setAvailabilityObj(getAvailabilityJSONObj(locationId));
 					jsonObjList.add(jsonObj);
 				}
 			}
@@ -134,26 +135,37 @@ public class ParklocationDetailsServlet extends HttpServlet {
 		return pricingJsonList;
 	}
 
-	private List<AvailabilityJSONObj> getAvailabilityJSONList(int parkingLocationId)
+	private AvailabilityJSONObj getAvailabilityJSONObj(int parkingLocationId)
 	{
-		ArrayList<AvailabilityJSONObj> availabilityJsonList = new ArrayList<AvailabilityJSONObj>();
 		Date date = new Date(System.currentTimeMillis()-(30*60*1000));
-		
+		AvailabilityJSONObj availabilityJson = new AvailabilityJSONObj();
 		List<UserFeedback> availabilityList = dBOperations.getUserFeedbackForParkingLocation(parkingLocationId, 
 											date, 5);
 		if(availabilityList != null && !availabilityList.isEmpty())
 		{
 			Iterator<UserFeedback> feedbackIter = availabilityList.iterator();
+			int availableCount = 0;
+			int unAvailableCount = 0;
+			int ChekedOutCount = 0;
+			int parkedCount = 0;
 			while(feedbackIter.hasNext())
 			{
 				UserFeedback f = feedbackIter.next();
-				AvailabilityJSONObj availabilityJson = new AvailabilityJSONObj();
-				availabilityJson.setAvailabity(f.isAvailable());
-				availabilityJson.setTimeStamp(f.getTimeStamp());
-				availabilityJsonList.add(availabilityJson);
+				if(f.getUserFeedbackType().equals(UserFeedbackType.AVAILABLE))
+					availableCount++;
+				else if(f.getUserFeedbackType().equals(UserFeedbackType.CHECKOUT))
+					unAvailableCount++;
+				else if(f.getUserFeedbackType().equals(UserFeedbackType.NOTAVAILABLE))
+					parkedCount++;
+				else
+					ChekedOutCount++;
 			}
+			availabilityJson.setAvailableVotes(availableCount);
+			availabilityJson.setCheckedOutNum(ChekedOutCount);
+			availabilityJson.setParkedNum(parkedCount);
+			availabilityJson.setUnAvailableVotes(unAvailableCount);
 		}
 		
-		return availabilityJsonList;
+		return availabilityJson;
 	}
 }
