@@ -3,8 +3,8 @@ This is a JEE Web application which serves as backend for ParkMyCar android appl
 
 ## Set up instructions
 Install JDK 1.7 and make sure you have $JAVA_HOME set in environment variables (download it at http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) <br/>
-Install MAVEN (download it at http://maven.apache.org/download.cgi) <br/>
-Now open command line (type cmd in run prompt in windows), go to the folder of this project and type 'mvn clean install' If you see "BUILD SUCCESS" then you are good to proceed. <br/>
+Install MAVEN (download it at http://maven.apache.org/download.cgi, once dowloaded, unzip it and add it to the PATH in  environment variables<br/>
+Now open command line (type cmd in run prompt in windows), go to the project folder and type 'mvn clean install' and enter. If you see "BUILD SUCCESS" then you are good to proceed. <br/>
 Download eclipse and install maven plugin (https://www.eclipse.org/m2e-wtp/) <br/>
 Import the parkmycar_webapp project into eclipse via File->Import->Maven->Existing maven projects <br/>
 Download and install tomcat <br/>
