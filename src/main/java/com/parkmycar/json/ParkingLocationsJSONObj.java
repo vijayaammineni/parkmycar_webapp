@@ -5,6 +5,7 @@ import java.util.List;
 import com.parkmycar.model.enumeration.ParkingCategory;
 
 public class ParkingLocationsJSONObj {
+	private long id;
 	private String address;
 	private Double latitude;
 	private Double longitude;
@@ -17,6 +18,14 @@ public class ParkingLocationsJSONObj {
 	private int downVotes;
 	private List<PricingJSONObj> pricingDetailsList;
 	private AvailabilityJSONObj availabilityObj;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

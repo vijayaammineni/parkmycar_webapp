@@ -68,14 +68,10 @@ public class ParkingLocationsAndroidServlet extends HttpServlet {
 				.getNearestParkingLocations(latitude, longitude, 5);
 
 			} 
-			else if (address != null && !address.isEmpty()) 
-			{
-				//TBD: geocode the address, get the lat&long and find the parking locations in the DB
-			} else {
+			else {
 				response.setStatus(HttpStatus.SC_BAD_REQUEST);
 				return;
 			}
-			
 			
 			ParkMyCarJson parkingLocationJson = new ParkMyCarJson();
 
@@ -89,10 +85,12 @@ public class ParkingLocationsAndroidServlet extends HttpServlet {
 				{
 					ParkingLocationsJSONObj jsonObj = new ParkingLocationsJSONObj();
 					ParkingLocations pl = plIter.next();
+					jsonObj.setId(pl.getId());
 					jsonObj.setLatitude(pl.getLatitude());
 					jsonObj.setLongitude(pl.getLongitude());
 					jsonObj.setAddress(pl.getAddress());
 					jsonObj.setName(pl.getName());
+					jsonObj.setCategory(pl.getCategory());
 					jsonObjList.add(jsonObj);
 				}
 			}
