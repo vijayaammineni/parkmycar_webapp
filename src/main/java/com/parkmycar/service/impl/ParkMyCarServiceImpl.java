@@ -14,6 +14,7 @@ import com.parkmycar.dao.UserFeedbackDao;
 import com.parkmycar.model.ParkingLocations;
 import com.parkmycar.model.Pricing;
 import com.parkmycar.model.UserFeedback;
+import com.parkmycar.model.enumeration.UserFeedbackType;
 import com.parkmycar.service.ParkMyCarService;
 
 @Service
@@ -115,5 +116,12 @@ public class ParkMyCarServiceImpl implements ParkMyCarService {
 
 	public List<ParkingLocations> getAllParkingLocations() {
 		return parkingLocationsDao.getAll();
+	}
+
+	public List<UserFeedback> getUserFeedbackByTypeAndMcdId(
+			int parkingLocationId, String mcdid, UserFeedbackType ufType,
+			Date newerThan, int maxResults) {
+		return userFeedbackDao.getUserFeedbackByTypeAndMcdId(parkingLocationId, mcdid, 
+				ufType, newerThan, maxResults);
 	}
 }

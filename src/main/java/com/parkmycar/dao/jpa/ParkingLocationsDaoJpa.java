@@ -1,7 +1,5 @@
 package com.parkmycar.dao.jpa;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -9,6 +7,7 @@ import javax.persistence.Query;
 import com.parkmycar.dao.ParkingLocationsDao;
 import com.parkmycar.model.ParkingLocations;
 
+@SuppressWarnings("unchecked")
 public class ParkingLocationsDaoJpa extends GenericDaoJpa<ParkingLocations, Long> implements ParkingLocationsDao {
 
 	public List<ParkingLocations> getAllOrderByDateModified() {
@@ -36,7 +35,6 @@ public class ParkingLocationsDaoJpa extends GenericDaoJpa<ParkingLocations, Long
 		nQuery.setParameter(2, longitude);
 		nQuery.setParameter(3, latitude);
 		nQuery.setParameter(4, radius);
-		
 		return nQuery.getResultList();
 	}
 	

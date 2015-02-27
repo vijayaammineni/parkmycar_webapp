@@ -40,6 +40,10 @@ public class UserFeedback implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TIMESTAMP", nullable = false)
 	private Date timeStamp = new Date();
+	
+	@Column(name = "MCDID", nullable = false)
+	private String mcdid;
+
 
 	public ParkingLocations getParkingLocation() {
 		return parkingLocation;
@@ -79,4 +83,12 @@ public class UserFeedback implements Serializable {
 		this.timeStamp = timeStamp;
 	}
 
+	public String getMcdid() {
+		return mcdid;
+	}
+
+	public void setMcdid(String mcdid) {
+		this.mcdid = mcdid;
+	}
+	
 }

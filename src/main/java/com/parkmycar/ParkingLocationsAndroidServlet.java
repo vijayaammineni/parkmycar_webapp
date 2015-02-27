@@ -56,16 +56,16 @@ public class ParkingLocationsAndroidServlet extends HttpServlet {
 			
 			String latStr = request.getParameter("latitude");
 			String longStr = request.getParameter("longitude");
-			String address = request.getParameter("address");
-
+			Double latitude = null;
+			Double longitude = null;
 			List<ParkingLocations> plist = null;
 			
 			if (latStr != null && longStr != null && !latStr.isEmpty()
 					&& !longStr.isEmpty()) {
-				double latitude = Double.parseDouble(latStr);
-				double longitude = Double.parseDouble(longStr);
+				latitude = Double.parseDouble(latStr);
+				longitude = Double.parseDouble(longStr);
 				plist = dBOperations
-				.getNearestParkingLocations(latitude, longitude, 5);
+				.getNearestParkingLocations(latitude, longitude, 3);
 
 			} 
 			else {
@@ -91,6 +91,8 @@ public class ParkingLocationsAndroidServlet extends HttpServlet {
 					jsonObj.setAddress(pl.getAddress());
 					jsonObj.setName(pl.getName());
 					jsonObj.setCategory(pl.getCategory());
+					jsonObj.setDistance(Utils.distance(latitude, longitude, 
+							pl.getLatitude(), pl.getLongitude(), 'M'));
 					jsonObjList.add(jsonObj);
 				}
 			}

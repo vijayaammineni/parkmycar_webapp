@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import com.parkmycar.model.ParkingLocations;
 import com.parkmycar.model.Pricing;
 import com.parkmycar.model.UserFeedback;
+import com.parkmycar.model.enumeration.UserFeedbackType;
 import com.parkmycar.service.ParkMyCarService;
 
 @Component
@@ -56,4 +57,16 @@ public class DBOperations {
 		return parkMyCarService.getUserFeedbackForParkingLocation(
 				parkingLocationId, newerThan, maxResults);
 	}
+	
+	public UserFeedback addUserFeedback(UserFeedback uf) {
+		return parkMyCarService.addUserFeedback(uf);
+	}
+	
+	public List<UserFeedback> getUserFeedbackByTypeAndMcdId(int parkingLocationId, String mcdid, UserFeedbackType ufType, 
+			Date newerThan, int maxResults) {
+		return parkMyCarService.getUserFeedbackByTypeAndMcdId(parkingLocationId, mcdid, 
+				ufType, newerThan, maxResults);
+	}
+	
+	
 }

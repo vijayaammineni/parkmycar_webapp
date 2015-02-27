@@ -16,6 +16,7 @@ public class ParkingLocationsJSONObj {
 	private ParkingCategory category;
 	private int upVotes;
 	private int downVotes;
+	private Double distance;
 	private List<PricingJSONObj> pricingDetailsList;
 	private AvailabilityJSONObj availabilityObj;
 	
@@ -105,6 +106,14 @@ public class ParkingLocationsJSONObj {
 
 	public void setDownVotes(int downVotes) {
 		this.downVotes = downVotes;
+	}
+	
+	public Double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Double distance) {
+		this.distance = distance;
 	}
 
 	public List<PricingJSONObj> getPricingDetailsList() {
